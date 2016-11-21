@@ -1,13 +1,15 @@
 # TriStateToggleButton
 A fully customizable tri-state toggle button for Android, based on iOS look and feel.
 
-<img src="images/tstb.gif"><br>
+<img src="images/tstb1.gif"><br>
 
 * Out-of-the-box working 3-state toggle
 * Can become a classic 2-state toggle returning booleans
 * Can become a 2.5-state toggle: on/off and an unselectable mid button
 * Fully customizable and styleable
 * Can be enabled / disabled
+
+<img src="images/tstb.gif"><br>
 
 ### Setup (Gradle)
 In your project's build.gradle file:
