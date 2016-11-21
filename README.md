@@ -35,7 +35,7 @@ In your Application's or Module's build.gradle file:
 ### Setup (Eclipse)
 Whaaaaat?
 
-### Usage
+### Minimal usage
 Layout:
 
     ...
