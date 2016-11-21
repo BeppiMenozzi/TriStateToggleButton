@@ -2,7 +2,9 @@
 A fully customizable tri-state toggle button for Android, based on iOS look and feel.
 Can act with three independent states, or with two states like a standard checkbox, or with two states plus one undefined.
 
+
 <img src="images/tstb1.gif"><br>
+<a href="http://android-arsenal.com/details/1/4692"><img src="https://img.shields.io/badge/Android%20Arsenal-TriStateToggleButton-brightgreen.svg?style=flat" border="0" alt="Android Arsenal"></a>
 
 * Out-of-the-box working 3-state toggle
 * Fully customizable and styleable
