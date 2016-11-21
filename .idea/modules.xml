@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/TriStateToggleButton.iml" filepath="$PROJECT_DIR$/TriStateToggleButton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tristatetogglebutton_library/tristatetogglebutton_library.iml" filepath="$PROJECT_DIR$/tristatetogglebutton_library/tristatetogglebutton_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tristatetogglebutton_sample/tristatetogglebutton_sample.iml" filepath="$PROJECT_DIR$/tristatetogglebutton_sample/tristatetogglebutton_sample.iml" />
+    </modules>
+  </component>
+</project>

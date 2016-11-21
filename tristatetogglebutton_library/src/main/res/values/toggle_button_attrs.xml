@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TriStateToggleButton">
+        <attr name="tbBorderWidth" format="dimension"/>
+        <attr name="tbOffBorderColor" format="reference|color"/>
+        <attr name="tbOffColor" format="reference|color"/>
+        <attr name="tbMidColor" format="reference|color"/>
+        <attr name="tbOnColor" format="reference|color"/>
+        <attr name="tbSpotColor" format="reference|color"/>
+        <attr name="tbAnimate" format="reference|boolean"/>
+        <attr name="tbDefaultStatus">
+            <enum name="off" value="0"/>
+            <enum name="mid" value="1"/>
+            <enum name="on" value="2"/>
+        </attr>
+        <attr name="tbIsMidSelectable" format="reference|boolean"/>
+        <attr name="enabled" format="reference|boolean"/>
+    </declare-styleable>
+</resources>
+
+
+<!-- Beppi: added tbMidColor attribute -->
+<!-- Beppi: refactored tbAsDefaultOn to tbDefaultStatus -->
+<!-- Beppi: changed type from reference|boolean to reference|toggle_status_values -->
+<!-- Beppi: added tbIsMidSelectable -->
+<!-- Beppi: added enabled -->
+<!--       <attr name="tbAsDefaultOn" format="reference|boolean"/> -->
+
