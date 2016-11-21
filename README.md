@@ -15,7 +15,7 @@ In your project's build.gradle file:
     allprojects {
         repositories {
             ...
-            **maven { url "https://jitpack.io" }**
+            maven { url "https://jitpack.io" }
             ...
         }
     }
