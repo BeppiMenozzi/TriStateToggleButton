@@ -4,10 +4,11 @@ A fully customizable tri-state toggle button for Android, based on iOS look and 
 <img src="images/tstb1.gif"><br>
 
 * Out-of-the-box working 3-state toggle
+* Fully customizable and styleable
 * Can become a classic 2-state toggle returning booleans
 * Can become a 2.5-state toggle: on/off and an unselectable mid button
-* Fully customizable and styleable
 * Can be enabled / disabled
+* Can be programmatically controlled
 
 <img src="images/tstb.gif"><br>
 
