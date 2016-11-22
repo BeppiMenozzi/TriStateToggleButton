@@ -106,7 +106,7 @@ License
 -------
     The MIT License (MIT)
     
-    Copyright (c) 2014 Le Van Hoang
+    Copyright (c) 2016 Beppi Menozzi
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
