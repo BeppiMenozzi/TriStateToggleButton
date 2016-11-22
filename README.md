@@ -30,7 +30,7 @@ In your Application's or Module's build.gradle file:
 
     dependencies {
         ...
-        compile 'com.github.BeppiMenozzi:TriStateToggleButton:1.0.2'
+        compile 'com.github.BeppiMenozzi:TriStateToggleButton:1.0.3'
         ...
     }
     
@@ -55,7 +55,7 @@ Listener:
     TriStateToggleButton tstb_1 = (TriStateToggleButton) findViewById(R.id.tstb_1);
     tstb_1.setOnToggleChanged(new TriStateToggleButton.OnToggleChanged() {
             @Override
-            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus) {
+            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus, int toggleIntValue) {
                 switch (toggleStatus) {
                     case off: break;
                     case mid: break;
@@ -67,6 +67,11 @@ Listener:
 
 Browse the full example here:
 <a href="https://github.com/BeppiMenozzi/TriStateToggleButton/tree/master/tristatetogglebutton_sample/src/main">Example</a>
+
+### New in 1.0.3
+* Toggle now can set and return integer values (0, 1, 2)
+* Warning: onToggle() changed to include integer values
+* Added static functions to convert from/to booleans and integers to/from toggleStatus
 
 Credits
 -------
