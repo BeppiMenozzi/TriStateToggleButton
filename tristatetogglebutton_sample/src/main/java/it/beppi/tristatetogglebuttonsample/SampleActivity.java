@@ -52,7 +52,7 @@ public class SampleActivity extends AppCompatActivity {
                 switch (toggleStatus) {
                     case off: tstb_2_text.setText("Off"); break;
                     case mid: tstb_2_text.setText("Almost..."); break;
-                    case on: tstb_2_text.setText("On"); tstb_3.setEnabled(true); break;
+                    case on: tstb_2_text.setText("On"); break;
                 }
             }
         });
