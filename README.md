@@ -97,7 +97,9 @@ Browse the full example here:
 Credits
 -------
 This project is strongly based on (and contains parts of code of) the very beautiful <a href="https://github.com/zcweng/ToggleButton">Toggle Button by zcweng.</a>
-Author: 
+
+Author:
+-------
 * Beppi Menozzi
 
 License
