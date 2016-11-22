@@ -65,6 +65,27 @@ Listener:
         });
     ...
 
+Inside onToggle() you can use the ToggleStatus type values, or limit yourself to use booleans or integers (0, 1, 2) if you want it easy.
+
+To have a two-states toggle button:
+
+     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:id="@+id/tstb_1"
+            app:tbIsMidSelectable="false"
+     />
+
+To have a twp-states toggle button, with an undefined starting value:
+
+     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:id="@+id/tstb_1"
+            app:tbIsMidSelectable="false"
+            app:tbDefaultStatus="mid"
+     />
+     
 Browse the full example here:
 <a href="https://github.com/BeppiMenozzi/TriStateToggleButton/tree/master/tristatetogglebutton_sample/src/main">Example</a>
 
