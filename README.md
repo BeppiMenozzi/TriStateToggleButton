@@ -1,5 +1,5 @@
-# TriStateToggleButton
-A fully customizable tri-state toggle button for Android, based on iOS look and feel.
+# TriState Toggle Button
+A fully customizable tri-state toggle button (switch button if you prefer) for Android, based on iOS look and feel.
 Can act with three independent states, or with two states like a standard checkbox, or with two states plus one undefined.
 
 
