@@ -41,10 +41,28 @@ public class TriStateToggleButton extends View{
 		else return on;
 	}
 
-	// Beppi: static shortcut for handling boolean values with 2-state. mid = false.
-	private boolean toggleStatusToBoolean(ToggleStatus toggleStatus) {
+	// Beppi: static shortcuts for handling boolean values with 2-state. mid = false.
+	public static boolean toggleStatusToBoolean(ToggleStatus toggleStatus) {
 		if (toggleStatus == on) return true;
 		else return false;
+	}
+	public static ToggleStatus booleanToToggleStatus(boolean toggleStatus) {
+		if (toggleStatus) return on;
+		else return off;
+	}
+	// Beppi: same with integers
+	public static int toggleStatusToInt(ToggleStatus toggleStatus) {
+		switch (toggleStatus) {
+			case off: return 0;
+			case mid: return 1;
+			case on:
+			default: return 2;
+		}
+	}
+	public static ToggleStatus intToToggleStatus(int toggleIntValue) {
+		if (toggleIntValue == 0) return off;
+		else if (toggleIntValue == 1) return mid;
+		else return on;
 	}
 
 
@@ -203,21 +221,21 @@ public class TriStateToggleButton extends View{
 		takeEffect(animate);
 		
 		if(listener != null){
-			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus));
+			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus), toggleStatusToInt(toggleStatus));
 		}
 	}
 	
 	public void toggleOn() {
 		setToggleOn();
 		if(listener != null){
-			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus));
+			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus), toggleStatusToInt(toggleStatus));
 		}
 	}
 	
 	public void toggleOff() {
 		setToggleOff();
 		if(listener != null){
-			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus));
+			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus), toggleStatusToInt(toggleStatus));
 		}
 	}
 
@@ -225,7 +243,7 @@ public class TriStateToggleButton extends View{
 	public void toggleMid() {
 		setToggleMid();
 		if(listener != null){
-			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus));
+			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus), toggleStatusToInt(toggleStatus));
 		}
 	}
 
@@ -291,6 +309,12 @@ public class TriStateToggleButton extends View{
 		if (toggleStatus) 	putValueInToggleStatus(on);
 		else 				putValueInToggleStatus(off);
 		takeEffect(animate);
+	}
+	public void setToggleStatus(int toggleIntValue) {
+		setToggleStatus(toggleIntValue, true);
+	}
+	public void setToggleStatus(int toggleIntValue, boolean animate) {
+		setToggleStatus(intToToggleStatus(toggleIntValue), animate);
 	}
 
 	// Beppi: rewritten takeEffect() method to manage 3 states
@@ -384,7 +408,6 @@ public class TriStateToggleButton extends View{
 	
 	@Override
 	public void draw(Canvas canvas) {
-		// Beppi: added enabled management
 		rect.set(0, 0, getWidth(), getHeight());
 		paint.setColor(borderColor);
 		canvas.drawRoundRect(rect, radius, radius, paint);
@@ -502,7 +525,7 @@ public class TriStateToggleButton extends View{
 		 */
 		// Beppi: changed according to 3 states value
 //		public void onToggle(boolean on);
-		public void onToggle(ToggleStatus toggleStatus, boolean booleanToggleStatus);
+		public void onToggle(ToggleStatus toggleStatus, boolean booleanToggleStatus, int toggleIntValue);
 	}
 
 	public void setOnToggleChanged(OnToggleChanged onToggleChanged) {

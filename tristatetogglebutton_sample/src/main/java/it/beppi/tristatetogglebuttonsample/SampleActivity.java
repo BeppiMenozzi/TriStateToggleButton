@@ -34,7 +34,7 @@ public class SampleActivity extends AppCompatActivity {
         tstb_1_text.setText("Off");
         tstb_1.setOnToggleChanged(new TriStateToggleButton.OnToggleChanged() {
             @Override
-            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus) {
+            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus, int toggleIntValue) {
                 switch (toggleStatus) {
                     case off: tstb_1_text.setText("Off"); break;
                     case mid: tstb_1_text.setText("Half way"); break;
@@ -48,7 +48,7 @@ public class SampleActivity extends AppCompatActivity {
         tstb_2_text.setText("Almost...");
         tstb_2.setOnToggleChanged(new TriStateToggleButton.OnToggleChanged() {
             @Override
-            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus) {
+            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus, int toggleIntValue) {
                 switch (toggleStatus) {
                     case off: tstb_2_text.setText("Off"); break;
                     case mid: tstb_2_text.setText("Almost..."); break;
@@ -62,7 +62,7 @@ public class SampleActivity extends AppCompatActivity {
         tstb_3_text.setText("undefined");
         tstb_3.setOnToggleChanged(new TriStateToggleButton.OnToggleChanged() {
             @Override
-            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus) {
+            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus, int toggleIntValue) {
                 switch (toggleStatus) {
                     case off: tstb_3_text.setText("False"); break;
                     case mid: tstb_3_text.setText("undefined"); break;
@@ -75,7 +75,7 @@ public class SampleActivity extends AppCompatActivity {
 
         tstb_4.setOnToggleChanged(new TriStateToggleButton.OnToggleChanged() {
             @Override
-            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus) {
+            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus, int toggleIntValue) {
                 tstb_3.setEnabled(booleanToggleStatus);
             }
         });
