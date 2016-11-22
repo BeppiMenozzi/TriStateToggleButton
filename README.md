@@ -76,7 +76,7 @@ To have a two-states toggle button:
             app:tbIsMidSelectable="false"
      />
 
-To have a twp-states toggle button, with an undefined starting value:
+To have a two-states toggle button, with an undefined starting value:
 
      <it.beppi.tristatetogglebutton_library.TriStateToggleButton
             android:layout_width="80dp"
