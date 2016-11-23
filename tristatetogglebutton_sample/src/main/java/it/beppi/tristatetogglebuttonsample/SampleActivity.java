@@ -73,6 +73,7 @@ public class SampleActivity extends AppCompatActivity {
 
 // Example 4: an out of the box classic 2-state toggle, using booleans, controls toggle 3
 
+        tstb_4.setToggleStatus(true);
         tstb_4.setOnToggleChanged(new TriStateToggleButton.OnToggleChanged() {
             @Override
             public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean booleanToggleStatus, int toggleIntValue) {

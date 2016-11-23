@@ -121,7 +121,6 @@
             android:layout_height="40dp"
             android:id="@+id/tstb_4"
             app:tbIsMidSelectable="false"
-            app:tbDefaultStatus="on"
             />
     </LinearLayout>
 

@@ -302,8 +302,7 @@ public class TriStateToggleButton extends View{
 		setToggleStatus(toggleStatus, true);
 	}
 	public void setToggleStatus(boolean toggleStatus) {
-		if (toggleStatus) 	putValueInToggleStatus(on);
-		else 				putValueInToggleStatus(off);
+		setToggleStatus(toggleStatus, true);
 	}
 	public void setToggleStatus(boolean toggleStatus, boolean animate) {
 		if (toggleStatus) 	putValueInToggleStatus(on);
