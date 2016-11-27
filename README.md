@@ -30,7 +30,7 @@ In your Application's or Module's build.gradle file:
 
     dependencies {
         ...
-        compile 'com.github.BeppiMenozzi:TriStateToggleButton:1.0.4'
+        compile 'com.github.BeppiMenozzi:TriStateToggleButton:1.0.5'
         ...
     }
     
@@ -88,6 +88,9 @@ To have a two-states toggle button, with an undefined starting value:
      
 Browse the full example here:
 <a href="https://github.com/BeppiMenozzi/TriStateToggleButton/tree/master/tristatetogglebutton_sample/src/main">Example</a>
+
+### New in 1.0.5
+* Fixed: added super in setEnabled()
 
 ### New in 1.0.4
 * Fixed: setting a boolean value programmatically sometimes didn't update status
