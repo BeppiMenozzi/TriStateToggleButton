@@ -634,5 +634,6 @@ public class TriStateToggleButton extends View{
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 		postInvalidate();
+		super.setEnabled(enabled);
 	}
 }
