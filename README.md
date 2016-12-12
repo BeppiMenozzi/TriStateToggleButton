@@ -31,7 +31,7 @@ In your Application's or Module's build.gradle file:
 
     dependencies {
         ...
-        compile 'com.github.BeppiMenozzi:TriStateToggleButton:1.0.5'
+        compile 'com.github.BeppiMenozzi:TriStateToggleButton:1.1.0'
         ...
     }
     
