@@ -92,6 +92,7 @@ Browse the full example here:
 
 ### Attributes description
 List of attributes with description:
+<table>
 <tr><td>tbBorderWidth</td><td>Width of the border of the widget</td></tr>
 <tr><td>tdOffBorderColor</td><td>Color of the width that appears with the button in state off. Used also for animations.</td></tr>
 <tr><td>tbOffColor</td><td>Color of the background of the toggle when off</td></tr>
@@ -102,7 +103,7 @@ List of attributes with description:
 <tr><td>tbDefaultStatus</td><td>Starting value for the toggle</td></tr>
 <tr><td>tbIsMidSelectable</td><td>If false, the toggle becomes a standard two-states toggle, but can still assume the mid value if forced programmatically or set as default</td></tr>
 <tr><td>tbSwipeSensitivityPixels</td><td>Number of pixels a swipe must travel to fire a toggle event. Default is 200. If set to zero, swipes are disabled</td></tr>
-
+</table>
 
 ### new in 1.1.0
 * Added swipe gesture management together with normal click
