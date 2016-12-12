@@ -170,14 +170,12 @@ public class TriStateToggleButton extends View{
 		spring = springSystem.createSpring();
 		spring.setSpringConfig(SpringConfig.fromOrigamiTensionAndFriction(50, 7));
 
-		/*   with onTouch this has become useless
 		this.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				toggle(defaultAnimate);
 			}
 		});
-		*/
 
 		// Beppi: swipe management
 		this.setOnTouchListener(new OnTouchListener() {
