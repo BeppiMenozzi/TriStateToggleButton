@@ -12,6 +12,7 @@ Can act with three independent states, or with two states like a standard checkb
 * Can become a 2.5-state toggle: on/off and an unselectable mid button
 * Can be enabled / disabled
 * Can be programmatically controlled
+* Works both with clicks and with swipes
 
 <img src="images/tstb.gif"><br>
 
@@ -88,6 +89,25 @@ To have a two-states toggle button, with an undefined starting value:
      
 Browse the full example here:
 <a href="https://github.com/BeppiMenozzi/TriStateToggleButton/tree/master/tristatetogglebutton_sample/src/main">Example</a>
+
+### Attributes description
+List of attributes with description:
+<tr><td>tbBorderWidth</td><td>Width of the border of the widget</td></tr>
+<tr><td>tdOffBorderColor</td><td>Color of the width that appears with the button in state off. Used also for animations.</td></tr>
+<tr><td>tbOffColor</td><td>Color of the background of the toggle when off</td></tr>
+<tr><td>tbMidColor</td><td>Color of the background of the toggle with in mid position</td></tr>
+<tr><td>tbOnColor</td><td>Color of the background of the toggle when on</td></tr>
+<tr><td>tbSpotColor</td><td>Color of the handle of the toggle</td></tr>
+<tr><td>tbAnimate</td><td>True for animation</td></tr>
+<tr><td>tbDefaultStatus</td><td>Starting value for the toggle</td></tr>
+<tr><td>tbIsMidSelectable</td><td>If false, the toggle becomes a standard two-states toggle, but can still assume the mid value if forced programmatically or set as default</td></tr>
+<tr><td>tbSwipeSensitivityPixels</td><td>Number of pixels a swipe must travel to fire a toggle event. Default is 200. If set to zero, swipes are disabled</td></tr>
+
+
+### new in 1.1.0
+* Added swipe gesture management together with normal click
+* Gradle update
+* More documentation
 
 ### New in 1.0.5
 * Fixed: added super in setEnabled()

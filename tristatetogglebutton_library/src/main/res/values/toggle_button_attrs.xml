@@ -15,6 +15,7 @@
         </attr>
         <attr name="tbIsMidSelectable" format="reference|boolean"/>
         <attr name="enabled" format="reference|boolean"/>
+        <attr name="tbSwipeSensitivityPixels" format="integer" />
     </declare-styleable>
 </resources>
 

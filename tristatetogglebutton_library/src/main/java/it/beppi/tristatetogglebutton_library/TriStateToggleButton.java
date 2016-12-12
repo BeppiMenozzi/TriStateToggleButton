@@ -11,6 +11,7 @@ import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.facebook.rebound.SimpleSpringListener;
@@ -19,8 +20,8 @@ import com.facebook.rebound.SpringConfig;
 import com.facebook.rebound.SpringSystem;
 import com.facebook.rebound.SpringUtil;
 
-import static it.beppi.tristatetogglebutton_library.TriStateToggleButton.ToggleStatus.off;
 import static it.beppi.tristatetogglebutton_library.TriStateToggleButton.ToggleStatus.mid;
+import static it.beppi.tristatetogglebutton_library.TriStateToggleButton.ToggleStatus.off;
 import static it.beppi.tristatetogglebutton_library.TriStateToggleButton.ToggleStatus.on;
 
 
@@ -120,6 +121,10 @@ public class TriStateToggleButton extends View{
 	// Beppi: added midSelectable
 	private boolean midSelectable = true;
 
+	// Beppi: swipe management
+	private int swipeSensitivityPixels = 200;
+	private int swipeX = 0;
+
 	/** 是否默认处于打开状态*/	// Whether it is on by default
 	// Beppi: changed the type of isDefaultOn from boolean to ToggleStatus
 	// Beppi: refactored the variable name from isDefaultOn to defaultStatus
@@ -128,6 +133,8 @@ public class TriStateToggleButton extends View{
 	// Beppi: enabled && disabledColor
 	private boolean enabled = true;
 	private int disabledColor = Color.parseColor("#bdbdbd");   // grey 400
+
+	private boolean swipeing = false;
 
 	private OnToggleChanged listener;
 	
@@ -162,11 +169,46 @@ public class TriStateToggleButton extends View{
 		springSystem = SpringSystem.create();
 		spring = springSystem.createSpring();
 		spring.setSpringConfig(SpringConfig.fromOrigamiTensionAndFriction(50, 7));
-		
+
+		/*   with onTouch this has become useless
 		this.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				toggle(defaultAnimate);
+			}
+		});
+		*/
+
+		// Beppi: swipe management
+		this.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View view, MotionEvent motionEvent) {
+				int x = (int) motionEvent.getX();
+				int action = motionEvent.getAction();
+				if (action == MotionEvent.ACTION_DOWN) {
+					swipeX = x;
+					swipeing = false;
+				}
+				else if (action == MotionEvent.ACTION_MOVE) {
+					if (swipeSensitivityPixels == 0) return false;
+					else if (x - swipeX > swipeSensitivityPixels) {
+						swipeX = x;
+						swipeing = true;
+						increaseValue();
+						return true;
+					}
+					else if (swipeX - x > swipeSensitivityPixels) {
+						swipeX = x;
+						swipeing = true;
+						decreaseValue();
+						return true;
+					}
+				}
+				else if (action == MotionEvent.ACTION_UP) {
+					if (!swipeing) toggle(defaultAnimate);    // here simple clicks are managed.
+					return true;
+				}
+				return false;
 			}
 		});
 		
@@ -187,6 +229,10 @@ public class TriStateToggleButton extends View{
 		// Beppi: added enabled
 		enabled = typedArray.getBoolean(R.styleable.TriStateToggleButton_enabled, enabled);
 		typedArray.recycle();
+
+		// Beppi: swipe
+		swipeSensitivityPixels = typedArray.getInt(R.styleable.TriStateToggleButton_tbSwipeSensitivityPixels, swipeSensitivityPixels);
+		// 0 == off
 		
 		borderColor = offBorderColor;
 
@@ -224,7 +270,7 @@ public class TriStateToggleButton extends View{
 			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus), toggleStatusToInt(toggleStatus));
 		}
 	}
-	
+
 	public void toggleOn() {
 		setToggleOn();
 		if(listener != null){
@@ -316,6 +362,35 @@ public class TriStateToggleButton extends View{
 		setToggleStatus(intToToggleStatus(toggleIntValue), animate);
 	}
 
+	public void increaseValue(boolean animate) {  // same as toggle, but after on does not rewind to off
+		switch (toggleStatus) {
+			case off: if (midSelectable) putValueInToggleStatus(mid); else putValueInToggleStatus(on); break;
+			case mid: putValueInToggleStatus(on); break;
+			case on: break;
+			}
+		takeEffect(animate);
+		if(listener != null){
+			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus), toggleStatusToInt(toggleStatus));
+		}
+	}
+	public void increaseValue() {
+		increaseValue(true);
+	}
+	public void decreaseValue(boolean animate) {
+		switch (toggleStatus) {
+			case on: if (midSelectable) putValueInToggleStatus(mid); else putValueInToggleStatus(off); break;
+			case mid: putValueInToggleStatus(off); break;
+			case off: break;
+		}
+		takeEffect(animate);
+		if(listener != null){
+			listener.onToggle(toggleStatus, toggleStatusToBoolean(toggleStatus), toggleStatusToInt(toggleStatus));
+		}
+	}
+	public void decreaseValue() {
+		decreaseValue(true);
+	}
+
 	// Beppi: rewritten takeEffect() method to manage 3 states
 /*
 	private void takeEffect(boolean animate) {
@@ -371,8 +446,7 @@ public class TriStateToggleButton extends View{
 	
 	
 	@Override
-	protected void onLayout(boolean changed, int left, int top, int right,
-			int bottom) {
+	protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
 		super.onLayout(changed, left, top, right, bottom);
 		
 		final int width = getWidth();
@@ -414,7 +488,7 @@ public class TriStateToggleButton extends View{
 		if(offLineWidth > 0){
 			final float cy = offLineWidth * 0.5f;
 			rect.set(spotX - cy, centerY - cy, endX + cy, centerY + cy);
-			paint.setColor(enabled ? offColor : disabledColor);
+			paint.setColor(enabled ? (toggleStatus == mid ? midColor : offColor) : disabledColor);
 			canvas.drawRoundRect(rect, cy, cy, paint);
 		}
 		
@@ -478,7 +552,11 @@ public class TriStateToggleButton extends View{
 		} else
 		if (previousToggleStatus == on && toggleStatus == off) {
 			toColor = offBorderColor; fromColor = onColor;
-		} else {
+		} else
+		if (previousToggleStatus == on && toggleStatus == mid) {
+			toColor = midColor; fromColor = onColor;
+		} else
+		{
 			toColor = offBorderColor; fromColor = onColor;
 		}
 
