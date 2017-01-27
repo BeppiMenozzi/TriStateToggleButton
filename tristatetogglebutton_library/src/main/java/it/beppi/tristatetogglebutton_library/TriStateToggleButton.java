@@ -226,12 +226,13 @@ public class TriStateToggleButton extends View{
 		midSelectable = typedArray.getBoolean(R.styleable.TriStateToggleButton_tbIsMidSelectable, midSelectable);
 		// Beppi: added enabled
 		enabled = typedArray.getBoolean(R.styleable.TriStateToggleButton_enabled, enabled);
-		typedArray.recycle();
 
 		// Beppi: swipe
 		swipeSensitivityPixels = typedArray.getInt(R.styleable.TriStateToggleButton_tbSwipeSensitivityPixels, swipeSensitivityPixels);
 		// 0 == off
-		
+
+		typedArray.recycle();
+
 		borderColor = offBorderColor;
 
 		// Beppi: changed the usage of defaultStatus to match ToggleStatus type
