@@ -10,6 +10,7 @@ import android.graphics.Paint.Cap;
 import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -421,7 +422,8 @@ public class TriStateToggleButton extends View{
 	
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		
+		Log.e("beppi", this.toString() + " measure");
+
 		final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 		final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 		
@@ -447,7 +449,7 @@ public class TriStateToggleButton extends View{
 	@Override
 	protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
 		super.onLayout(changed, left, top, right, bottom);
-		
+
 		final int width = getWidth();
 		final int height = getHeight();
 		
@@ -458,6 +460,7 @@ public class TriStateToggleButton extends View{
 		spotMinX = startX + borderWidth;
 		spotMaxX = endX - borderWidth;
 		spotSize = height - 4 * borderWidth;
+		spotMidX = (startX + endX) / 2 + borderWidth;
 		// Beppi: changed management of the position according to 3 states
 //		spotX = toggleStatus ? spotMaxX : spotMinX;
 		spotX = toggleStatus == on ? spotMaxX : toggleStatus == off ? spotMinX : spotMidX;
