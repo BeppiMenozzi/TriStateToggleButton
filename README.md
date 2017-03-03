@@ -31,7 +31,7 @@ In your Application's or Module's build.gradle file:
 
     dependencies {
         ...
-        compile 'com.github.BeppiMenozzi:TriStateToggleButton:1.1.2'
+        compile 'com.github.BeppiMenozzi:TriStateToggleButton:1.1.3'
         ...
     }
     
@@ -105,7 +105,10 @@ List of attributes with description:
 <tr><td>tbSwipeSensitivityPixels</td><td>Number of pixels a swipe must travel to fire a toggle event. Default is 200. If set to zero, swipes are disabled</td></tr>
 </table>
 
-### new in 1.1.0
+### New in 1.1.3
+* Fixed: error drawing toggle in mid position when visibility passed from GONE to VISIBLE
+
+### New in 1.1.0
 * Added swipe gesture management together with normal click
 * Gradle update
 * More documentation
