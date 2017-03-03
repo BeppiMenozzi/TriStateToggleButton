@@ -456,8 +456,8 @@ public class TriStateToggleButton extends View{
 		endX = width - radius;
 		spotMinX = startX + borderWidth;
 		spotMaxX = endX - borderWidth;
+		spotMidX = (startX + endX) / 2;
 		spotSize = height - 4 * borderWidth;
-		spotMidX = (startX + endX) / 2 + borderWidth;
 		// Beppi: changed management of the position according to 3 states
 //		spotX = toggleStatus ? spotMaxX : spotMinX;
 		spotX = toggleStatus == on ? spotMaxX : toggleStatus == off ? spotMinX : spotMidX;
