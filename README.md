@@ -124,6 +124,10 @@ List of attributes with description:
 * Warning: onToggle() changed to include integer values
 * Added static functions to convert from/to booleans and integers to/from toggleStatus
 
+Used in
+-------
+* https://play.google.com/store/apps/details?id=it.beppi.bootwithlogo
+
 Credits
 -------
 This project is strongly based on (and contains parts of code of) the very beautiful <a href="https://github.com/zcweng/ToggleButton">Toggle Button by zcweng.</a>
