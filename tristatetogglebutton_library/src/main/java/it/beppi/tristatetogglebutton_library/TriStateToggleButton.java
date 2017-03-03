@@ -10,7 +10,6 @@ import android.graphics.Paint.Cap;
 import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -422,8 +421,6 @@ public class TriStateToggleButton extends View{
 	
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		Log.e("beppi", this.toString() + " measure");
-
 		final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 		final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 		
